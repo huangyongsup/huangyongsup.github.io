@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直水平居中</title>
+    <style>
+        body{
+            color: white;
+        }
+        .clearfix::after, .clearfix::before{
+            content: "";
+            display: table;
+        }
+        .clearfix{
+            clear: both;
+        }
+        /*初始化父元素，使其水平居中*/
+        .init{
+            width: 50%;
+            height: 180px;
+            margin-left: 25%;
+            margin-bottom: 10px;
+            background: red;
+            box-sizing: border-box;
+            transition-property: width, background, height;
+            transition-duration: 3s, 3s, 3s;
+        }
+        .init:hover{
+            width: 70%;
+            background: green;
+            height: 200px;
+        }
+        .father-element{
+            position: relative;
+        }
+        .by-position{
+            width: 50%;
+            height: 50%;
+            background: #000;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+        }
+        .son-element{
+            width: 50%;
+            height: 50%;
+            background: #000;
+        }
+        .by-margin{
+            margin-left: 25%;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="init">
+    <!--<div class="son-element">通过设置父元素的padding</div>-->
+</div>
+<div class="init father-element">
+    <div class="by-position">通过定位使得子元素垂直水平居中,宽高都按照百分比设置</div>
+</div>
+<div class="init clearfix">
+    <div class="son-element by-margin">通过设置子元素的margin值</div>
+</div>
+</body>
+</html>
