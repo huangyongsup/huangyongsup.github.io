@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>垂直水平居中</title>
@@ -22,6 +22,7 @@
             margin-bottom: 10px;
             background: red;
             box-sizing: border-box;
+            position: relative;
             transition-property: width, background, height;
             transition-duration: 3s, 3s, 3s;
         }
@@ -29,9 +30,6 @@
             width: 70%;
             background: green;
             height: 200px;
-        }
-        .father-element{
-            position: relative;
         }
         .by-position{
             width: 50%;
@@ -41,7 +39,12 @@
             top: 25%;
             left: 25%;
         }
+        .by-padding{
+            padding-left: 12.5%;
+            padding-top: 45px;
+        }
         .son-element{
+            position: absolute;
             width: 50%;
             height: 50%;
             background: #000;
@@ -53,14 +56,14 @@
     </style>
 </head>
 <body>
-<div class="init">
-    <!--<div class="son-element">通过设置父元素的padding</div>-->
+<div class="init by-padding">
+    <div class="son-element">通过设置父元素的padding来达到效果，但在进行transition时，无法使宽高动态地水平垂直居中</div>
 </div>
-<div class="init father-element">
-    <div class="by-position">通过定位使得子元素垂直水平居中,宽高都按照百分比设置</div>
+<div class="init">
+    <div class="by-position">通过定位使得子元素垂直水平居中,宽高都按照百分比设置，在进行transition时，可始终水平垂直居中</div>
 </div>
 <div class="init clearfix">
-    <div class="son-element by-margin">通过设置子元素的margin值</div>
+    <div class="son-element by-margin">通过设置子元素的margin值来达到效果，宽可动态水平居中，高无法动态水平居中</div>
 </div>
 </body>
 </html>
